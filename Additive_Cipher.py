@@ -4,13 +4,14 @@ class additive_cipher :
     # Encryption rule:
     # E(x) = (x + k) mod 26.
     def encrypt(self ,key , plain_text ):
-        ctx = [ chr(ord(c) + key) for c in plain_text]
+        ctx = [chr((((ord(c) - ord("A")) + key) % 26) + ord("A")) for c in plain_text]
         # print(ctx)
         return  "".join(ctx)
 
 
-    def decrypt(self , key , cipher_text ):
-        ptx = [ chr(ord(c) - key ) for c in cipher_text]
+
+    def decrypt(self, key, cipher_text):
+        ptx = [chr((((ord(c) - ord("A")) - key) % 26) + ord("A")) for c in cipher_text]
         return "".join(ptx)
 
 

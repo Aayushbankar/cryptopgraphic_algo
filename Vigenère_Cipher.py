@@ -11,7 +11,7 @@ class vignereCipher :
     def encrypt (self,key , plain_text ):
 
         # Version 2 
-
+        
         # step 1 
 
         plns = [ord(c) - ord("A") for c in plain_text if c.isalpha()]
