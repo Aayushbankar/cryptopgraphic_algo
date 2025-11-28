@@ -18,7 +18,8 @@ class monoAlphabeticCipher :
         # ctx = [ ch := key_map[ch]  for ch in plain_text]
         ctx = []
         for ch in plain_text:
-            ctx.append(key_map[ch])
+            if ord(ch) > ord("A") and ord(ch) < ord("Z"):
+                ctx.append(key_map[ch])
         # print(ctx)
         return "".join(ctx)
     def decrypt (self,cipher_text, key ) :
